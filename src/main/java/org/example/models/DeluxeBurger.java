@@ -19,7 +19,7 @@ public class DeluxeBurger extends Hamburger {
     }
 
     public void warning() {
-        System.out.println("Deluxe Burger için yeni malzeme eklenemez.");
+        System.out.println("Deluxe Burger için yeni malzeme eklenemez");
     }
 
     @Override

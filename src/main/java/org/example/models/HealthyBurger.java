@@ -24,7 +24,6 @@ public class HealthyBurger extends Hamburger {
 
     @Override
     public void itemizeHamburger() {
-        double totalPrice = this.getPrice();
 
         System.out.println("Name: " + this.getName());
         System.out.println("Meat: " + this.getMeat());
@@ -36,7 +35,6 @@ public class HealthyBurger extends Hamburger {
         for (int i = 0; i < additions.length; i++) {
             if (additions[i] != null) {
                 System.out.println("Addition" + (i + 1) + ": " + additions[i]);
-                totalPrice += prices[i];
             }
         }
 
@@ -46,10 +44,27 @@ public class HealthyBurger extends Hamburger {
         for (int i = 0; i < healthyAdditions.length; i++) {
             if (healthyAdditions[i] != null) {
                 System.out.println("HealthyAddition" + (i + 1) + ": " + healthyAdditions[i]);
-                totalPrice += healthyPrices[i];
             }
         }
 
-        System.out.println("Price: " + totalPrice);
+        System.out.println("Price: " + this.getPrice());
+
+    }
+
+    @Override
+    public double getPrice() {
+        double totalPrice = super.getPrice();
+
+        // Add regular additions
+        totalPrice += getAddition1Price();
+        totalPrice += getAddition2Price();
+        totalPrice += getAddition3Price();
+        totalPrice += getAddition4Price();
+
+        // Add healthy additions
+        totalPrice += this.healthyExtra1Price;
+        totalPrice += this.healthyExtra2Price;
+
+        return totalPrice;
     }
 }
